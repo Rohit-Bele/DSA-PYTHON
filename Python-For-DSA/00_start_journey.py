@@ -1,0 +1,8 @@
+print("===================================")
+print("      DSA WITH PYTHON JOURNEY      ")
+print("===================================")
+print("Name : Rohit Bele")
+print("Started On : 30 June 2026")
+print("Goal : Learn Python and DSA")
+print("Consistency > Perfection")
+print("===================================")
