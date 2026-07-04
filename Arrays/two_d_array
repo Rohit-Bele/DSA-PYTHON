@@ -1,0 +1,12 @@
+marks = [
+    [88,76,77],#row1
+    [87,65,97],#row2
+    [88,76,86]#row3
+]
+
+
+#accessing using nested loops
+for i in marks:
+    for j in i:
+        print(j,end=" ")
+    print()
