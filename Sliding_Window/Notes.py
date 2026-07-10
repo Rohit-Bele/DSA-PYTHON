@@ -2,9 +2,9 @@
 
 ## Definition
 
-Sliding Window is a technique used to efficiently solve problems involving contiguous subarrays or substrings.
+Sliding Window is a technique used to solve problems involving continuous (contiguous) subarrays or substrings efficiently.
 
-Instead of recalculating values for every subarray, we maintain a window and slide it through the array/string.
+Instead of checking every possible subarray, we maintain a window and slide it through the array/string.
 
 ---
 
@@ -12,13 +12,23 @@ Instead of recalculating values for every subarray, we maintain a window and sli
 
 Without Sliding Window:
 
-- Check every possible subarray
-- Time Complexity = O(n²)
+Time Complexity:
+
+O(n²)
+
+Example:
+
+Check every possible subarray.
+
+---
 
 With Sliding Window:
 
-- Reuse previous calculations
-- Time Complexity = O(n)
+Time Complexity:
+
+O(n)
+
+Reuse previous calculations instead of recalculating everything.
 
 ---
 
@@ -42,110 +52,35 @@ Think Sliding Window when you see:
 
 ✓ Shortest Subarray
 
+✓ Average of Subarray
+
 ---
 
 ## Main Idea
 
-Maintain a window using two pointers.
+Use two pointers:
 
 ```text
-left → window start
+left  = start of window
 
-right → window end
+right = end of window
 ```
 
 Window moves from left to right.
 
 ---
 
-## Fixed Size Window
+## Visualization
 
-Window size remains constant.
-
-Example:
-
-Find maximum sum of subarray of size K.
-
-```python
-arr = [1,2,3,4,5]
-k = 3
-```
-
-Possible windows:
+Array:
 
 ```text
-[1,2,3]
-[2,3,4]
-[3,4,5]
-```
-
----
-
-### Diagram
-
-```text
-1 2 3 4 5
-
-L   R
+1 2 3 4 5 6
 ```
 
 Window Size = 3
 
-Move:
-
 ```text
-1 2 3 4 5
-
-  L   R
-```
-
----
-
-### Formula
-
-```python
-window_sum -= arr[left]
-
-left += 1
-
-right += 1
-
-window_sum += arr[right]
-```
-
----
-
-## Variable Size Window
-
-Window size changes based on condition.
-
-Example:
-
-Longest substring without repeating characters.
-
-Window expands and shrinks dynamically.
-
-```text
-Expand Window
-↓
-Condition Violated
-↓
-Shrink Window
-↓
-Continue
-```
-
----
-
-## Sliding Window Visualization
-
-```text
-Array:
-
-1 2 3 4 5 6
-
-Window:
-
 [1 2 3]
   ↓
 [2 3 4]
@@ -157,56 +92,33 @@ Window:
 
 ---
 
-## Difference Between Two Pointers and Sliding Window
+# Types of Sliding Window
 
-### Two Pointers
+## 1. Fixed Size Window
 
-Purpose:
+Window size remains constant.
 
-```text
-Compare elements
+Example:
 
-Move pointers
+Find Maximum Sum Subarray of Size K.
 
-Rearrange data
+```python
+arr = [2,1,5,1,3,2]
+k = 3
 ```
 
-Examples:
+Possible Windows:
 
 ```text
-Pair Sum
-Palindrome
-Move Zeroes
-Remove Element
-```
-
----
-
-### Sliding Window
-
-Purpose:
-
-```text
-Process contiguous subarrays/substrings
-
-Find max/min values
-
-Find longest/shortest window
-```
-
-Examples:
-
-```text
-Maximum Sum Subarray
-
-Longest Substring
-
-Minimum Window
+[2,1,5]
+[1,5,1]
+[5,1,3]
+[1,3,2]
 ```
 
 ---
 
-## Fixed Window Template
+### Fixed Window Template
 
 ```python
 left = 0
@@ -226,7 +138,29 @@ for right in range(len(arr)):
 
 ---
 
-## Variable Window Template
+## 2. Variable Size Window
+
+Window size changes based on a condition.
+
+Example:
+
+Longest Substring Without Repeating Characters.
+
+Process:
+
+```text
+Expand Window
+↓
+Condition Breaks
+↓
+Shrink Window
+↓
+Continue
+```
+
+---
+
+### Variable Window Template
 
 ```python
 left = 0
@@ -246,7 +180,58 @@ for right in range(len(arr)):
 
 ---
 
-## Complexity
+# Difference Between Two Pointers and Sliding Window
+
+## Two Pointers
+
+Purpose:
+
+```text
+Compare Elements
+Rearrange Data
+Move Pointers
+```
+
+Examples:
+
+```text
+Pair Sum
+Palindrome
+Move Zeroes
+Remove Element
+```
+
+---
+
+## Sliding Window
+
+Purpose:
+
+```text
+Process Continuous Subarrays
+
+Find Maximum
+
+Find Minimum
+
+Find Longest
+
+Find Shortest
+```
+
+Examples:
+
+```text
+Maximum Sum Subarray
+
+Average of Subarray
+
+Longest Substring
+```
+
+---
+
+# Complexity
 
 Time Complexity:
 
@@ -264,17 +249,17 @@ O(1)
 
 ---
 
-## Beginner Problems
+# Beginner Problems
 
 1. Maximum Sum Subarray of Size K
 2. Average of Subarray of Size K
-3. Maximum Number of Vowels in a Substring
-4. Longest Substring Without Repeating Characters
-5. Longest Repeating Character Replacement
+3. Maximum Average Subarray I
+4. Maximum Number of Vowels in a Substring
+5. Longest Substring Without Repeating Characters
 
 ---
 
-## Notes
+# Notes
 
 Fixed Window:
 
@@ -290,8 +275,48 @@ Window size changes dynamically
 
 ---
 
-## One-Line Revision
+# Interview Recognition
+
+If the question contains:
+
+```text
+Subarray
+Substring
+Window Size K
+Longest
+Shortest
+Maximum Sum
+Minimum Sum
+```
+
+Immediately think:
+
+```text
+Sliding Window
+```
+
+---
+
+# One Line Revision
 
 Sliding Window:
 
-Use two pointers to maintain a continuous window and efficiently process subarrays or substrings without recalculating everything.
+Maintain a continuous window using two pointers and slide it through the array/string to avoid repeated calculations.
+
+---
+
+# Important Formula
+
+Window Size:
+
+```python
+right - left + 1
+```
+
+Remember:
+
+```text
+left  = start of window
+
+right = end of window
+```
