@@ -20,11 +20,11 @@ Example:
 
 Check every possible subarray.
 
----
+---  
 
 With Sliding Window:
 
-Time Complexity:
+Time Complexity :
 
 O(n)
 
@@ -39,6 +39,8 @@ Think Sliding Window when you see:
 ✓ Subarray
 
 ✓ Substring
+
+✓ Window Size K
 
 ✓ Continuous Elements
 
