@@ -337,3 +337,19 @@ Most Used Questions:
 3. Daily Temperatures
 4. Monotonic Stack Problems
 ```
+
+```
+# Important Stack Topics
+
+## ⭐⭐⭐⭐⭐ Must Learn
+
+1. Basic Stack Operations
+2. Valid / Balanced Parentheses
+3. Next Greater Element
+4. Next Smaller Element
+5. Previous Greater Element
+6. Previous Smaller Element
+7. Monotonic Stack
+8. Stock Span Problem
+9. Daily Temperatures
+```
