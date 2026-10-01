@@ -1,0 +1,804 @@
+Absolutely 👍 Here are **TCS coding-interface input/output notes** specifically for Python. Keep these as your revision notes before August 26.
+
+# TCS Coding — Python Input & Output Notes
+
+The most important thing:
+
+> **Always read the Input Format given in the question.**
+> Your code should match whether values are given on the same line or different lines.
+
+---
+
+## 1. Single Integer
+
+### Input
+
+```text
+5
+```
+
+### Code
+
+```python
+n = int(input())
+```
+
+Result:
+
+```python
+n = 5
+```
+
+---
+
+# 2. Single String
+
+### Input
+
+```text
+hello
+```
+
+### Code
+
+```python
+s = input()
+```
+
+Result:
+
+```python
+s = "hello"
+```
+
+---
+
+# 3. Two Integers — Same Line
+
+### Input
+
+```text
+5 10
+```
+
+### Code
+
+```python
+n, target = map(int, input().split())
+```
+
+Result:
+
+```python
+n = 5
+target = 10
+```
+
+### Important
+
+This does **not** create a list.
+
+It creates two variables.
+
+---
+
+# 4. Two Integers — Separate Lines
+
+### Input
+
+```text
+5
+10
+```
+
+### Code
+
+```python
+n = int(input())
+target = int(input())
+```
+
+Result:
+
+```python
+n = 5
+target = 10
+```
+
+---
+
+# 5. Array — All Elements on One Line ⭐
+
+This is very important for TCS.
+
+### Input
+
+```text
+10 20 30 40 50
+```
+
+### Code
+
+```python
+arr = list(map(int, input().split()))
+```
+
+Result:
+
+```python
+arr = [10, 20, 30, 40, 50]
+```
+
+### Breakdown
+
+```python
+input()
+```
+
+gets:
+
+```text
+"10 20 30 40 50"
+```
+
+```python
+.split()
+```
+
+gives:
+
+```python
+["10", "20", "30", "40", "50"]
+```
+
+```python
+map(int, ...)
+```
+
+converts them to integers.
+
+```python
+list(...)
+```
+
+creates:
+
+```python
+[10, 20, 30, 40, 50]
+```
+
+---
+
+# 6. `n` + Array
+
+Very common.
+
+### Input
+
+```text
+5
+10 20 30 40 50
+```
+
+### Code
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+```
+
+Result:
+
+```python
+n = 5
+arr = [10, 20, 30, 40, 50]
+```
+
+You **don't need a loop** to take the array if all elements are on one line.
+
+---
+
+# 7. `n` + Target + Array
+
+### Input
+
+```text
+5 30
+10 20 30 40 50
+```
+
+### Code
+
+```python
+n, target = map(int, input().split())
+arr = list(map(int, input().split()))
+```
+
+Result:
+
+```python
+n = 5
+target = 30
+arr = [10, 20, 30, 40, 50]
+```
+
+---
+
+# 8. Array Elements on Separate Lines
+
+Sometimes the format can be:
+
+```text
+5
+10
+20
+30
+40
+50
+```
+
+Then you need a loop:
+
+```python
+n = int(input())
+
+arr = []
+
+for _ in range(n):
+    arr.append(int(input()))
+```
+
+Result:
+
+```python
+arr = [10, 20, 30, 40, 50]
+```
+
+### ⚠️ Don't automatically use this.
+
+Use it **only when the input format actually gives one element per line.**
+
+---
+
+# 9. String Array
+
+### Input
+
+```text
+apple banana mango
+```
+
+### Code
+
+```python
+arr = input().split()
+```
+
+Result:
+
+```python
+["apple", "banana", "mango"]
+```
+
+No `map(int)` because these are strings.
+
+---
+
+# 10. Character Input
+
+### Input
+
+```text
+a
+```
+
+### Code
+
+```python
+ch = input()
+```
+
+Result:
+
+```python
+ch = "a"
+```
+
+---
+
+# 11. Multiple Strings on One Line
+
+### Input
+
+```text
+hello world
+```
+
+### Code
+
+```python
+s1, s2 = input().split()
+```
+
+Result:
+
+```python
+s1 = "hello"
+s2 = "world"
+```
+
+---
+
+# 12. Array of Floats
+
+### Input
+
+```text
+1.5 2.5 3.5
+```
+
+### Code
+
+```python
+arr = list(map(float, input().split()))
+```
+
+Result:
+
+```python
+[1.5, 2.5, 3.5]
+```
+
+---
+
+# 13. Negative Numbers
+
+Nothing special is required.
+
+### Input
+
+```text
+-5 -10 20 -3
+```
+
+### Code
+
+```python
+arr = list(map(int, input().split()))
+```
+
+Result:
+
+```python
+[-5, -10, 20, -3]
+```
+
+---
+
+# 14. Array + Target
+
+### Input
+
+```text
+1 2 3 4 5
+3
+```
+
+### Code
+
+```python
+arr = list(map(int, input().split()))
+target = int(input())
+```
+
+Result:
+
+```python
+arr = [1, 2, 3, 4, 5]
+target = 3
+```
+
+---
+
+# 15. Target + Array
+
+If the question gives:
+
+```text
+3
+1 2 3 4 5
+```
+
+Use:
+
+```python
+target = int(input())
+arr = list(map(int, input().split()))
+```
+
+**Order matters.**
+
+---
+
+# 16. Matrix Input ⭐
+
+Suppose:
+
+```text
+3 3
+1 2 3
+4 5 6
+7 8 9
+```
+
+Here:
+
+```text
+3 3 → rows, columns
+```
+
+Code:
+
+```python
+rows, cols = map(int, input().split())
+
+matrix = []
+
+for _ in range(rows):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+```
+
+Result:
+
+```python
+[
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+```
+
+For a matrix, a loop is normally necessary because **each row is a separate input line**.
+
+---
+
+# 17. Multiple Test Cases ⭐⭐⭐
+
+Suppose:
+
+```text
+3
+5
+10
+20
+30
+```
+
+Meaning:
+
+```text
+3 test cases
+5
+10
+20
+30
+```
+
+Code:
+
+```python
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+
+    # solve problem
+```
+
+---
+
+# 18. Multiple Test Cases with Arrays
+
+Example:
+
+```text
+2
+3
+10 20 30
+4
+1 2 3 4
+```
+
+Code:
+
+```python
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+
+    # solve problem
+```
+
+---
+
+# 19. Multiple Test Cases — `n` and Target
+
+Input:
+
+```text
+2
+5 10
+1 2 3 4 5
+4 7
+2 3 4 5
+```
+
+Code:
+
+```python
+t = int(input())
+
+for _ in range(t):
+    n, target = map(int, input().split())
+    arr = list(map(int, input().split()))
+
+    # solve problem
+```
+
+---
+
+# 20. Printing One Integer
+
+```python
+print(ans)
+```
+
+Output:
+
+```text
+25
+```
+
+---
+
+# 21. Printing a String
+
+```python
+print("Hello")
+```
+
+Output:
+
+```text
+Hello
+```
+
+---
+
+# 22. Printing an Array
+
+```python
+arr = [10, 20, 30, 40]
+
+print(arr)
+```
+
+Output:
+
+```text
+[10, 20, 30, 40]
+```
+
+⚠️ But sometimes the expected output is:
+
+```text
+10 20 30 40
+```
+
+Then use:
+
+```python
+print(*arr)
+```
+
+Output:
+
+```text
+10 20 30 40
+```
+
+This is **very useful in coding tests**.
+
+---
+
+# 23. Printing Array Without Spaces
+
+If required:
+
+```text
+10203040
+```
+
+You can use:
+
+```python
+print("".join(map(str, arr)))
+```
+
+---
+
+# 24. Printing Each Element on New Line
+
+```python
+for x in arr:
+    print(x)
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+---
+
+# 25. Printing Multiple Values
+
+```python
+a = 10
+b = 20
+
+print(a, b)
+```
+
+Output:
+
+```text
+10 20
+```
+
+---
+
+# 26. Don't Add Extra Text ❌
+
+Don't write:
+
+```python
+print("The answer is", ans)
+```
+
+if expected output is only:
+
+```text
+25
+```
+
+Instead:
+
+```python
+print(ans)
+```
+
+The judge compares your output with the expected output.
+
+---
+
+# ⭐ Most Important Patterns to Memorize
+
+You don't need to memorize 26 different things. These are the **core patterns**:
+
+### Single integer
+
+```python
+n = int(input())
+```
+
+### Multiple integers
+
+```python
+a, b = map(int, input().split())
+```
+
+### Integer array
+
+```python
+arr = list(map(int, input().split()))
+```
+
+### String
+
+```python
+s = input()
+```
+
+### String array
+
+```python
+words = input().split()
+```
+
+### Matrix
+
+```python
+matrix = []
+
+for _ in range(rows):
+    matrix.append(list(map(int, input().split())))
+```
+
+### Multiple test cases
+
+```python
+t = int(input())
+
+for _ in range(t):
+    # input + solution
+```
+
+### Print array
+
+```python
+print(*arr)
+```
+
+---
+
+# 🧠 Your TCS Mental Process
+
+When you see a question, **don't immediately start coding the logic**.
+
+First look at:
+
+```text
+INPUT FORMAT
+       ↓
+What is given first?
+       ↓
+Integer?
+Array?
+String?
+Multiple values?
+Multiple test cases?
+       ↓
+Same line or separate lines?
+       ↓
+Choose input code
+       ↓
+Write logic
+       ↓
+Print exactly as OUTPUT FORMAT says
+```
+
+### Example
+
+If the question says:
+
+```text
+Input:
+5
+10 20 30 40 50
+
+Output:
+150
+```
+
+Immediately think:
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+
+# logic
+
+print(answer)
+```
+
+That's the **TCS hands-on style** you should practice.
+
+And one correction to what we discussed earlier: **there isn't one universal TCS interface/input format for every coding question**. The exact input format is determined by the individual question, so your safest habit is always to follow its stated Input Format rather than assuming it will be like LeetCode.
