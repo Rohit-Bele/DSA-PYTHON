@@ -54,3 +54,54 @@ def insert_at_end(new_node,head):
 
 insert_at_end(node5,head)
 print_all_node(head)
+
+
+node6 = Node(1)
+
+def insert_at_position(new_node, head, position):
+    
+    prev = 0 
+    current = head 
+    for i in range(1,position):
+        prev = current 
+        current = current.next
+
+    prev.next = new_node
+    new_node.next = current
+
+insert_at_position(node6,head,4)
+print_all_node(head)
+
+
+def delete_at_beginning(head):
+    head = head.next 
+    return head 
+
+head = delete_at_beginning(head)
+print_all_node(head)
+
+def delete_at_end(head):
+    prev = 0 
+    current = head 
+    while current.next :
+        prev = current
+        current = current.next 
+    
+    prev.next = None
+    return head
+head = delete_at_end(head)
+print_all_node(head)
+
+
+def delete_at_position(head, position):
+    
+    prev = 0
+    current = head
+    for i in range(1,position):
+        prev = current
+        current = current.next
+    
+    prev.next = current.next 
+
+delete_at_position(head,3)
+print_all_node(head)
